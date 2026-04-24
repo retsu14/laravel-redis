@@ -23,14 +23,13 @@ class AuthController extends Controller
                 ], 401);
             }
 
-            $request->session()->regenerate();
 
             return response()->json([
                 'message' => 'Logged In Successfully',
                 'user' => Auth::user(),
             ], 200);
         } catch (\Throwable $th) {
-            report($th); 
+            report($th);
 
             return response()->json([
                 'message' => 'Login failed',
@@ -81,7 +80,7 @@ class AuthController extends Controller
                 'message' => 'Logged out Successfully.',
             ], 200);
         } catch (\Throwable $th) {
-            report($th); 
+            report($th);
 
             return response()->json([
                 'message' => 'Login failed',
